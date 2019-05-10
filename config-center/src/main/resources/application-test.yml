@@ -1,0 +1,36 @@
+
+server:
+  port: 8888
+
+spring:
+  application:
+    name: config-server
+  # spring cloud 
+  cloud:
+    config:
+      server:
+        # git配置数据源
+        #git:
+         # uri: ssh://wangsai@git.wangxiao.cn:29418/java/ZDYCMS.git
+          #search-paths:
+          #- config
+          #clone-on-start: true
+          #username: wangsai
+          #password: wangsai
+        # jdbc配置数据源  
+        jdbc:
+          sql: SELECT `KEY`, `VALUE` from PROPERTIES where APPLICATION=? and PROFILE=? and LABEL=?
+  security:
+    user:
+      name: root
+      password: 123456
+  datasource:
+    url: jdbc:mysql://localhost:3306/cbtransfer?serverTimezone=GMT%2B8
+    username: root
+    password: 123456
+    type: com.alibaba.druid.pool.DruidDataSource
+  profiles:
+    active:
+    - jdbc
+ 
+  

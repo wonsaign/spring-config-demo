@@ -1,0 +1,33 @@
+
+server:
+  port: 8888
+
+spring:
+  application:
+    name: config-server
+  profiles:
+    active:
+    - jdbc    
+  cloud:
+    config:
+      server:
+        # jdbc配置数据源  
+        jdbc:
+          sql: SELECT `KEY`, `VALUE` from PROPERTIES where APPLICATION=? and PROFILE=? and LABEL=?
+  security:
+    user:
+      name: root
+      password: 123456
+  datasource:
+    url: jdbc:mysql://localhost:3306/cbtransfer?serverTimezone=GMT%2B8
+    username: root
+    password: 123456
+    type: com.alibaba.druid.pool.DruidDataSource
+
+ 
+management:
+  endpoints:
+    web:
+      exposure:
+        include:
+        - health,info,refresh
