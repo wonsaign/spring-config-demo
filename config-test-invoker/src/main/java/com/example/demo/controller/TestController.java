@@ -16,6 +16,12 @@ public class TestController {
 	@Value("${user.password}")
 	private String password;
 	
+/*    @Value("${user.password}")
+    private String u1;
+
+    @Value("${user.password}")
+    private String u2;*/
+	
 	@RequestMapping(value="test/hi", method=RequestMethod.GET)
 	public String requestMethodName() {
 		return new String(role + "~~~~~" + password);

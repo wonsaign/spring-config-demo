@@ -1,0 +1,13 @@
+server:
+  port: 8000
+
+spring:
+  # 此 Application name 代表了 配置文件中的{application}-profile.yml
+  application:
+    name: application
+  cloud:
+    config:
+      # 此 profile name 代表了 配置文件中的application-{profile}.yml
+      profile: prod
+      # 此label 代表了git中的分支， 是必须值，默认是master
+      label: master
